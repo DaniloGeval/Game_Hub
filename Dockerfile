@@ -1,8 +1,9 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["Game_Hub.csproj", "./"]
-RUN dotnet restore "Game_Hub.csproj"
+COPY ["Game_Hub/Game_Hub.csproj", "Game_Hub/"]
+RUN dotnet restore "Game_Hub/Game_Hub.csproj"
 COPY . .
+WORKDIR "/src/Game_Hub"
 RUN dotnet publish "Game_Hub.csproj" -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final

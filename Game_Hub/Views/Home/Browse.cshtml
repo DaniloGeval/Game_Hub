@@ -1,0 +1,303 @@
+﻿@using Microsoft.AspNetCore.Localization
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var currentCulture = requestCulture?.RequestCulture.UICulture.Name ?? "uk";
+    var isUk = currentCulture == "uk";
+
+    ViewData["Title"] = isUk ? "Огляд" : "Browse";
+}
+
+<!-- ***** Featured Games Start ***** -->
+<div class="row">
+    <div class="col-lg-8">
+        <div class="featured-games header-text">
+            <div class="heading-section">
+                <h4><em>@(isUk ? "Рекомендовані" : "Featured")</em> @(isUk ? "ігри" : "Games")</h4>
+            </div>
+            <div class="owl-features owl-carousel">
+                <div class="item">
+                    <div class="thumb">
+                        <img src="~/assets/images/featured-01.jpg" alt="">
+                        <div class="hover-effect">
+                            <h6>2.0K @(isUk ? "трансляцій" : "Streaming")</h6>
+                        </div>
+                    </div>
+                    <h4>CS-GO<br><span>219K @(isUk ? "завантажень" : "Downloads")</span></h4>
+                    <ul>
+                        <li><i class="fa fa-star"></i> 4.2</li>
+                        <li><i class="fa fa-download"></i> 23.3M</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="thumb">
+                        <img src="~/assets/images/featured-02.jpg" alt="">
+                        <div class="hover-effect">
+                            <h6>3.4K @(isUk ? "трансляцій" : "Streaming")</h6>
+                        </div>
+                    </div>
+                    <h4>Gamezer<br><span>132K @(isUk ? "завантажень" : "Downloads")</span></h4>
+                    <ul>
+                        <li><i class="fa fa-star"></i> 4.1</li>
+                        <li><i class="fa fa-download"></i> 22.4M</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="thumb">
+                        <img src="~/assets/images/featured-03.jpg" alt="">
+                        <div class="hover-effect">
+                            <h6>4.7K @(isUk ? "трансляцій" : "Streaming")</h6>
+                        </div>
+                    </div>
+                    <h4>Island Rusty<br><span>411K @(isUk ? "завантажень" : "Downloads")</span></h4>
+                    <ul>
+                        <li><i class="fa fa-star"></i> 4.7</li>
+                        <li><i class="fa fa-download"></i> 44.1M</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="thumb">
+                        <img src="~/assets/images/featured-01.jpg" alt="">
+                        <div class="hover-effect">
+                            <h6>3.5K @(isUk ? "трансляцій" : "Streaming")</h6>
+                        </div>
+                    </div>
+                    <h4>CS-GO<br><span>278K @(isUk ? "завантажень" : "Downloads")</span></h4>
+                    <ul>
+                        <li><i class="fa fa-star"></i> 4.2</li>
+                        <li><i class="fa fa-download"></i> 2.3M</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="thumb">
+                        <img src="~/assets/images/featured-02.jpg" alt="">
+                        <div class="hover-effect">
+                            <h6>2.4K @(isUk ? "трансляцій" : "Streaming")</h6>
+                        </div>
+                    </div>
+                    <h4>Gamezer<br><span>249K @(isUk ? "завантажень" : "Downloads")</span></h4>
+                    <ul>
+                        <li><i class="fa fa-star"></i> 4.8</li>
+                        <li><i class="fa fa-download"></i> 2.3M</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="thumb">
+                        <img src="~/assets/images/featured-03.jpg" alt="">
+                        <div class="hover-effect">
+                            <h6>2.4K @(isUk ? "трансляцій" : "Streaming")</h6>
+                        </div>
+                    </div>
+                    <h4>Island Rusty<br><span>249K @(isUk ? "завантажень" : "Downloads")</span></h4>
+                    <ul>
+                        <li><i class="fa fa-star"></i> 4.8</li>
+                        <li><i class="fa fa-download"></i> 2.3M</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="top-downloaded">
+            <div class="heading-section">
+                <h4><em>@(isUk ? "Топ" : "Top")</em> @(isUk ? "завантажуваних" : "Downloaded")</h4>
+            </div>
+            <ul>
+                <li>
+                    <img src="~/assets/images/game-01.jpg" alt="" class="templatemo-item">
+                    <h4>Minecraft</h4>
+                    <h6>@(isUk ? "Пісочниця" : "Sandbox")</h6>
+                    <span><i class="fa fa-star" style="color: yellow;"></i> 4.6</span>
+                    <span><i class="fa fa-download" style="color: #ec6090;"></i> 35.2M</span>
+                    <div class="download">
+                        <a href="#"><i class="fa fa-download"></i></a>
+                    </div>
+                </li>
+                <li>
+                    <img src="~/assets/images/game-02.jpg" alt="" class="templatemo-item">
+                    <h4>Fortnite</h4>
+                    <h6>@(isUk ? "Шутер" : "Shooter")</h6>
+                    <span><i class="fa fa-star" style="color: yellow;"></i> 4.0</span>
+                    <span><i class="fa fa-download" style="color: #ec6090;"></i> 62.3M</span>
+                    <div class="download">
+                        <a href="#"><i class="fa fa-download"></i></a>
+                    </div>
+                </li>
+                <li>
+                    <img src="~/assets/images/game-03.jpg" alt="" class="templatemo-item">
+                    <h4>CS2</h4>
+                    <h6>@(isUk ? "Шутер" : "Shooter")</h6>
+                    <span><i class="fa fa-star" style="color: yellow;"></i> 4.2</span>
+                    <span><i class="fa fa-download" style="color: #ec6090;"></i> 25.5M</span>
+                    <div class="download">
+                        <a href="#"><i class="fa fa-download"></i></a>
+                    </div>
+                </li>
+            </ul>
+            <div class="text-button">
+                <a asp-controller="Home" asp-action="Profile">@(isUk ? "Переглянути всі ігри" : "View All Games")</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Featured Games End ***** -->
+
+<!-- ***** Start Stream Start ***** -->
+<div class="start-stream">
+    <div class="col-lg-12">
+        <div class="heading-section">
+            <h4><em>@(isUk ? "Як розпочати" : "How To Start Your")</em> @(isUk ? "ваш прямий ефір" : "Live Stream")</h4>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="item">
+                    <div class="icon">
+                        <img src="~/assets/images/service-01.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
+                    </div>
+                    <h4>@(isUk ? "Перейдіть до свого профілю" : "Go To Your Profile")</h4>
+                    <p>@(isUk ? "Cyborg Gaming — це безкоштовний шаблон веб-сайту HTML CSS, наданий TemplateMo." : "Cyborg Gaming is free HTML CSS website template provided by TemplateMo. This is Bootstrap v5.2.0 layout.")</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="item">
+                    <div class="icon">
+                        <img src="~/assets/images/service-02.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
+                    </div>
+                    <h4>@(isUk ? "Кнопка прямого ефіру" : "Live Stream Button")</h4>
+                    <p>@(isUk ? "Якщо ви хочете підтримати нас, ви можете зробити невеликий внесок через PayPal." : "If you wish to support us, you can make a small contribution via PayPal.")</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="item">
+                    <div class="icon">
+                        <img src="~/assets/images/service-03.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
+                    </div>
+                    <h4>@(isUk ? "Ви в ефірі" : "You Are Live")</h4>
+                    <p>@(isUk ? "Вам не дозволяється розповсюджувати цей файл ZIP на інших сайтах колекцій шаблонів." : "You are not allowed to redistribute this template's downloadable ZIP file.")</p>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="main-button">
+                    <a asp-controller="Home" asp-action="Profile">@(isUk ? "Перейти до профілю" : "Go To Profile")</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Start Stream End ***** -->
+
+<!-- ***** Live Stream Start ***** -->
+<div class="live-stream">
+    <div class="col-lg-12">
+        <div class="heading-section">
+            <h4><em>@(isUk ? "Найпопулярніші" : "Most Popular")</em> @(isUk ? "прямі трансляції" : "Live Stream")</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="item">
+                <div class="thumb">
+                    <img src="~/assets/images/stream-01.jpg" alt="">
+                    <div class="hover-effect">
+                        <div class="content">
+                            <div class="live">
+                                <a href="#">@(isUk ? "Наживо" : "Live")</a>
+                            </div>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-eye"></i> 1.2K</a></li>
+                                <li><a href="#"><i class="fa fa-gamepad"></i> CS-GO</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="down-content">
+                    <div class="avatar">
+                        <img src="~/assets/images/avatar-01.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
+                    </div>
+                    <span><i class="fa fa-check"></i> KenganC</span>
+                    <h4>@(isUk ? "Спілкування з фанатами" : "Just Talking With Fans")</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="item">
+                <div class="thumb">
+                    <img src="~/assets/images/stream-02.jpg" alt="">
+                    <div class="hover-effect">
+                        <div class="content">
+                            <div class="live">
+                                <a href="#">@(isUk ? "Наживо" : "Live")</a>
+                            </div>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-eye"></i> 1.2K</a></li>
+                                <li><a href="#"><i class="fa fa-gamepad"></i> CS-GO</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="down-content">
+                    <div class="avatar">
+                        <img src="~/assets/images/avatar-02.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
+                    </div>
+                    <span><i class="fa fa-check"></i> LunaMa</span>
+                    <h4>@(isUk ? "Трансляція CS2" : "CS2 Live Stream")</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="item">
+                <div class="thumb">
+                    <img src="~/assets/images/stream-03.jpg" alt="">
+                    <div class="hover-effect">
+                        <div class="content">
+                            <div class="live">
+                                <a href="#">@(isUk ? "Наживо" : "Live")</a>
+                            </div>
+                            <ul>
+                                <li><i class="fa fa-eye"></i> 1.2K</a></li>
+                                <li><i class="fa fa-gamepad"></i> CS-GO</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="down-content">
+                    <div class="avatar">
+                        <img src="~/assets/images/avatar-03.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
+                    </div>
+                    <span><i class="fa fa-check"></i> Areluwa</span>
+                    <h4>@(isUk ? "Просто відпочиваємо" : "Just Chillin'")</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="item">
+                <div class="thumb">
+                    <img src="~/assets/images/stream-04.jpg" alt="">
+                    <div class="hover-effect">
+                        <div class="content">
+                            <div class="live">
+                                <a href="#">@(isUk ? "Наживо" : "Live")</a>
+                            </div>
+                            <ul>
+                                <li><i class="fa fa-eye"></i> 1.2K</a></li>
+                                <li><i class="fa fa-gamepad"></i> CS-GO</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="down-content">
+                    <div class="avatar">
+                        <img src="~/assets/images/avatar-04.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
+                    </div>
+                    <span><i class="fa fa-check"></i> GangTm</span>
+                    <h4>@(isUk ? "Стрім до самого ранку" : "Live Streaming Till Morning")</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="main-button">
+                <a asp-controller="Home" asp-action="Streams">@(isUk ? "Переглянути всі стріми" : "Discover All Streams")</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Live Stream End ***** -->

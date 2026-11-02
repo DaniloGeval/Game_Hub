@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNetCore.Localization
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var currentCulture = requestCulture?.RequestCulture.UICulture.Name ?? "uk";
+}
+
+<form id="selectLanguage" method="post" asp-controller="Home" asp-action="SetLanguage" asp-route-returnUrl="@Context.Request.Path" style="margin: 0; display: inline-block;">
+    <select name="culture" onchange="this.form.submit();" style="background-color: #27292a; color: #fff; border: 1px solid #444; border-radius: 20px; padding: 4px 12px; font-size: 14px; cursor: pointer;">
+        <option value="uk" selected="@(currentCulture == "uk")">UA</option>
+        <option value="en" selected="@(currentCulture == "en")">EN</option>
+    </select>
+</form>

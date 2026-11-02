@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="name" type="xsd:string" use="required" />
+								<xsd:element name="type" type="xsd:string" minOccurs="0" />
+								<xsd:element name="synonym" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<attribute name="name" type="xsd:string" use="required" />
+							<attribute name="type" type="xsd:string" minOccurs="0" />
+							<attribute name="mimetype" type="xsd:string" minOccurs="0" />
+							<attribute name="xml:space" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+
+	<data name="UploadFile" xml:space="preserve"><value>Завантажити файл</value></data>
+	<data name="FileList" xml:space="preserve"><value>Список файлів</value></data>
+	<data name="HomeTitle" xml:space="preserve"><value>Головна сторінка</value></data>
+	<data name="WelcomeTitle" xml:space="preserve"><value>Ласкаво просимо до Cyborg</value></data>
+	<data name="BrowseHighlight" xml:space="preserve"><value>ПЕРЕГЛЯНЬТЕ</value></data>
+	<data name="BrowseGamesTitle" xml:space="preserve"><value>НАШІ ПОПУЛЯРНІ ІГРИ ТУТ</value></data>
+	<data name="BrowseNowBtn" xml:space="preserve"><value>Переглянути зараз</value></data>
+	<data name="MostPopularTitle" xml:space="preserve"><value>Найпопулярніше</value></data>
+	<data name="RightNowTitle" xml:space="preserve"><value>зараз</value></data>
+</root>

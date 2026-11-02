@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Localization
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var currentCulture = requestCulture?.RequestCulture.UICulture.Name ?? "uk";
+    var isUk = currentCulture == "uk";
+
+    ViewData["Title"] = isUk ? "Завантажити файл" : "Upload File";
+}
+
+<div class="container" style="padding-top: 100px; color: white;">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="p-4 rounded" style="background-color: #27293d;">
+                <h3 class="mb-4 text-center">@(isUk ? "Завантаження файлу на сервер" : "Upload File to Server")</h3>
+
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+                }
+
+                <form asp-action="Upload" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="file" class="form-label">@(isUk ? "Оберіть файл" : "Choose file")</label>
+                        <input type="file" name="file" class="form-control" style="background: #1f212d; color: #fff; border: none;" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100" style="border-radius: 25px; background-color: #ec6090; border: none;">@(isUk ? "Завантажити" : "Upload")</button>
+                </form>
+
+                <div class="mt-3 text-center">
+                    <a asp-action="FileList" style="color: #ec6090;">@(isUk ? "Переглянути список завантажених файлів" : "View uploaded files list")</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

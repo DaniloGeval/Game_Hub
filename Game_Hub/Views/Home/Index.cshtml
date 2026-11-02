@@ -1,0 +1,172 @@
+﻿@using Microsoft.AspNetCore.Localization
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var currentCulture = requestCulture?.RequestCulture.UICulture.Name ?? "uk";
+    var isUk = currentCulture == "uk";
+
+    ViewData["Title"] = isUk ? "Головна сторінка" : "Home Page";
+}
+
+<!-- ***** Banner Start ***** -->
+<div class="main-banner">
+    <div class="row">
+        <div class="col-lg-7">
+            <div class="header-text">
+                <h6>@(isUk ? "Ласкаво просимо до Cyborg" : "Welcome To Cyborg")</h6>
+                <h4><em>@(isUk ? "ПЕРЕГЛЯНЬТЕ" : "BROWSE")</em> @(isUk ? "НАШІ ПОПУЛЯРНІ ІГРИ ТУТ" : "OUR POPULAR GAMES HERE")</h4>
+                <div class="main-button">
+                    <a href="#">@(isUk ? "Переглянути зараз" : "Browse Now")</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Banner End ***** -->
+<!-- ***** Most Popular Start ***** -->
+<div class="most-popular">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="heading-section">
+                <h4><em>@(isUk ? "Найпопулярніше" : "Most Popular")</em> @(isUk ? "зараз" : "Right Now")</h4>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="item">
+                        <img src="~/assets/images/popular-01.jpg" alt="">
+                        <h4>Fortnite<br><span>@(isUk ? "Королівська битва" : "Battle Royale")</span></h4>
+                        <ul>
+                            <li><i class="fa fa-star"></i> 3.0</li>
+                            <li><i class="fa fa-download"></i> 62.3M</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="item">
+                        <img src="~/assets/images/popular-02.jpg" alt="">
+                        <h4>PUBG<br><span>@(isUk ? "Королівська битва" : "Battle Royale")</span></h4>
+                        <ul>
+                            <li><i class="fa fa-star"></i> 4.8</li>
+                            <li><i class="fa fa-download"></i> 22.1M</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="item">
+                        <img src="~/assets/images/popular-03.jpg" alt="">
+                        <h4>RDR2<br><span>@(isUk ? "Шутер" : "Shooter")</span></h4>
+                        <ul>
+                            <li><i class="fa fa-star"></i> 5</li>
+                            <li><i class="fa fa-download"></i> 4.6M</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="item">
+                        <img src="~/assets/images/popular-04.jpg" alt="">
+                        <h4>CS2<br><span>@(isUk ? "Шутер" : "Shooter")</span></h4>
+                        <ul>
+                            <li><i class="fa fa-star"></i> 4.2</li>
+                            <li><i class="fa fa-download"></i> 25.5M</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="item inner-item">
+                                    <img src="~/assets/images/popular-05.jpg" alt="">
+                                    <h4>Minecraft<br><span>@(isUk ? "Пісочниця" : "Sandbox")</span></h4>
+                                    <ul>
+                                        <li><i class="fa fa-star"></i> 4.6</li>
+                                        <li><i class="fa fa-download"></i> 35.2M</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="item">
+                                    <img src="~/assets/images/popular-06.jpg" alt="">
+                                    <h4>Skyrim<br><span>@(isUk ? "РПГ" : "RPG")</span></h4>
+                                    <ul>
+                                        <li><i class="fa fa-star"></i> 5</li>
+                                        <li><i class="fa fa-download"></i> 42.3M</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="item">
+                        <img src="~/assets/images/popular-07.jpg" alt="">
+                        <h4>GTA5<br><span>@(isUk ? "Шутер" : "Shooter")</span></h4>
+                        <ul>
+                            <li><i class="fa fa-star"></i> 4.7</li>
+                            <li><i class="fa fa-download"></i> 42.6M</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="item">
+                        <img src="~/assets/images/popular-08.jpg" alt="">
+                        <h4>NBA2K26<br><span>@(isUk ? "Спорт" : "Sport")</span></h4>
+                        <ul>
+                            <li><i class="fa fa-star"></i> 3.9</li>
+                            <li><i class="fa fa-download"></i> 15.1M</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="main-button">
+                        <a href="#">@(isUk ? "Показати більше популярних" : "Discover Popular")</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Most Popular End ***** -->
+<!-- ***** Gaming Library Start ***** -->
+<div class="gaming-library">
+    <div class="col-lg-12">
+        <div class="heading-section">
+            <h4><em>@(isUk ? "Ваша ігрова" : "Your Gaming")</em> @(isUk ? "бібліотека" : "Library")</h4>
+        </div>
+        <div class="item">
+            <ul>
+                <li><img src="~/assets/images/game-01.jpg" alt="" class="templatemo-item"></li>
+                <li><h4>Minecraft</h4><span>@(isUk ? "Пісочниця" : "Sandbox")</span></li>
+                <li><h4>@(isUk ? "Дата додавання" : "Date Added")</h4><span>24/08/2011</span></li>
+                <li><h4>@(isUk ? "Годин у грі" : "Hours Played")</h4><span>304 H 22 Mins</span></li>
+                <li><h4>@(isUk ? "Статус" : "Currently")</h4><span>@(isUk ? "Завантажено" : "Downloaded")</span></li>
+                <li><div class="main-border-button border-no-active"><a href="#">@(isUk ? "Завантажено" : "Downloaded")</a></div></li>
+            </ul>
+        </div>
+        <div class="item">
+            <ul>
+                <li><img src="~/assets/images/game-02.jpg" alt="" class="templatemo-item"></li>
+                <li><h4>Fortnite</h4><span>@(isUk ? "Королівська битва" : "Battle Royale")</span></li>
+                <li><h4>@(isUk ? "Дата додавання" : "Date Added")</h4><span>22/06/2017</span></li>
+                <li><h4>@(isUk ? "Годин у грі" : "Hours Played")</h4><span>740 H 52 Mins</span></li>
+                <li><h4>@(isUk ? "Статус" : "Currently")</h4><span>@(isUk ? "Не завантажено" : "Not downloaded")</span></li>
+                <li><div class="main-border-button"><a href="#">@(isUk ? "Завантажити" : "Download")</a></div></li>
+            </ul>
+        </div>
+        <div class="item last-item">
+            <ul>
+                <li><img src="~/assets/images/game-03.jpg" alt="" class="templatemo-item"></li>
+                <li><h4>CS2</h4><span>@(isUk ? "Шутер" : "Shooter")</span></li>
+                <li><h4>@(isUk ? "Дата додавання" : "Date Added")</h4><span>21/04/2023</span></li>
+                <li><h4>@(isUk ? "Годин у грі" : "Hours Played")</h4><span>892 H 14 Mins</span></li>
+                <li><h4>@(isUk ? "Статус" : "Currently")</h4><span>@(isUk ? "Завантажено" : "Downloaded")</span></li>
+                <li><div class="main-border-button border-no-active"><a href="#">@(isUk ? "Завантажено" : "Downloaded")</a></div></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="main-button">
+            <a href="#">@(isUk ? "Переглянути вашу бібліотеку" : "View Your Library")</a>
+        </div>
+    </div>
+</div>
+<!-- ***** Gaming Library End ***** -->

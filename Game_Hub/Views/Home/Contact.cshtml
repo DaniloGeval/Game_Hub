@@ -1,0 +1,40 @@
+﻿@model Game_Hub.Models.EmailMessageViewModel
+@using Microsoft.AspNetCore.Localization
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var currentCulture = requestCulture?.RequestCulture.UICulture.Name ?? "uk";
+    var isUk = currentCulture == "uk";
+
+    ViewData["Title"] = isUk ? "Зворотний зв'язок" : "Contact Support";
+}
+
+<div class="container mt-5" style="padding-top: 80px;">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card bg-dark text-white p-4 border-secondary">
+                <h2 class="mb-4 text-primary">@(isUk ? "Зв'язатися з підтримкою Game Hub" : "Contact Game Hub Support")</h2>
+
+                @if (ViewBag.SuccessMessage != null)
+                {
+                    <div class="alert alert-success">@ViewBag.SuccessMessage</div>
+                }
+
+                <form asp-action="Contact" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">@(isUk ? "Отримувач (Email)" : "Recipient (Email)")</label>
+                        <input asp-for="Email" class="form-control bg-secondary text-white border-0" placeholder="example@gmail.com" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">@(isUk ? "Тема" : "Subject")</label>
+                        <input asp-for="Subject" class="form-control bg-secondary text-white border-0" placeholder="@(isUk ? "Тема повідомлення" : "Message subject")" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">@(isUk ? "Повідомлення" : "Message")</label>
+                        <textarea asp-for="Message" class="form-control bg-secondary text-white border-0" rows="5" placeholder="@(isUk ? "Введіть текст повідомлення..." : "Enter your message text...")" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary px-4">@(isUk ? "Надіслати" : "Send")</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

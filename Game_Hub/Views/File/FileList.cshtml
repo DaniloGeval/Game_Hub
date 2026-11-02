@@ -1,0 +1,40 @@
+﻿@model List<string>
+@using Microsoft.AspNetCore.Localization
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var currentCulture = requestCulture?.RequestCulture.UICulture.Name ?? "uk";
+    var isUk = currentCulture == "uk";
+
+    ViewData["Title"] = isUk ? "Список файлів" : "Files List";
+}
+
+<div class="container" style="padding-top: 100px; color: white;">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="p-4 rounded" style="background-color: #27293d;">
+                <h3 class="mb-4">@(isUk ? "Список файлів на сервері" : "Files List on Server")</h3>
+
+                @if (Model != null && Model.Any())
+                {
+                    <ul class="list-group">
+                        @foreach (var file in Model)
+                        {
+                            <li class="list-group-item d-flex justify-content-between align-items-center" style="background: #1f212d; color: #fff; border-color: #2c2f3f;">
+                                <span>@file</span>
+                                <a asp-action="ViewFile" asp-route-filename="@file" class="btn btn-sm btn-primary" style="background-color: #ec6090; border: none;">@(isUk ? "Переглянути" : "View")</a>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p class="text-muted">@(isUk ? "На сервері ще немає завантажених файлів." : "There are no uploaded files on the server yet.")</p>
+                }
+
+                <div class="mt-4">
+                    <a asp-action="Upload" class="btn btn-secondary" style="border-radius: 25px;">@(isUk ? "Завантажити новий файл" : "Upload new file")</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

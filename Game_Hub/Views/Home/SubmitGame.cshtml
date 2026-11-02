@@ -1,0 +1,103 @@
+﻿@model Game_Hub.Models.GameSubmissionViewModel
+
+@{
+    ViewData["Title"] = "Додавання гри (FluentValidation)";
+}
+
+<div class="container" style="padding-top: 120px; padding-bottom: 80px; color: white;">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card bg-dark text-white p-5" style="border-radius: 23px; border: 1px solid #27293d;">
+                <h2 class="mb-4" style="color: #ec6090; font-weight: 700;">Форма подачі гри (FluentValidation)</h2>
+
+                <!-- Повідомлення про успішне надсилання -->
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success" style="background-color: #198754; color: white; border-radius: 12px; padding: 15px; margin-bottom: 20px;">
+                        @TempData["SuccessMessage"]
+                    </div>
+                }
+
+                <form asp-action="SubmitGame" method="post">
+                    <!-- Загальний блок помилок валідації -->
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3" style="font-weight: 650;"></div>
+
+                    <!-- 1. Назва гри -->
+                    <div class="mb-3">
+                        <label class="form-label">Назва гри</label>
+                        <input asp-for="GameTitle" class="form-control" style="background-color: #27293d; border: none; color: white; border-radius: 12px; padding: 12px;" />
+                        <span asp-validation-for="GameTitle" class="text-danger" style="font-size: 13px; margin-top: 5px; display: block;"></span>
+                    </div>
+
+                    <!-- 2. Студія-розробник -->
+                    <div class="mb-3">
+                        <label class="form-label">Студія-розробник</label>
+                        <input asp-for="DeveloperStudio" class="form-control" style="background-color: #27293d; border: none; color: white; border-radius: 12px; padding: 12px;" />
+                        <span asp-validation-for="DeveloperStudio" class="text-danger" style="font-size: 13px; margin-top: 5px; display: block;"></span>
+                    </div>
+
+                    <!-- 3. Рік випуску (Nullable) -->
+                    <div class="mb-3">
+                        <label class="form-label">Рік випуску (необов'язково)</label>
+                        <input asp-for="ReleaseYear" class="form-control" style="background-color: #27293d; border: none; color: white; border-radius: 12px; padding: 12px;" />
+                        <span asp-validation-for="ReleaseYear" class="text-danger" style="font-size: 13px; margin-top: 5px; display: block;"></span>
+                    </div>
+
+                    <!-- 4. Ціна (Nullable) -->
+                    <div class="mb-3">
+                        <label class="form-label">Ціна (грн, необов'язково)</label>
+                        <input asp-for="Price" class="form-control" style="background-color: #27293d; border: none; color: white; border-radius: 12px; padding: 12px;" />
+                        <span asp-validation-for="Price" class="text-danger" style="font-size: 13px; margin-top: 5px; display: block;"></span>
+                    </div>
+
+                    <!-- 5. Категорія -->
+                    <div class="mb-3">
+                        <label class="form-label">Категорія / Жанр</label>
+                        <input asp-for="Category" class="form-control" style="background-color: #27293d; border: none; color: white; border-radius: 12px; padding: 12px;" />
+                        <span asp-validation-for="Category" class="text-danger" style="font-size: 13px; margin-top: 5px; display: block;"></span>
+                    </div>
+
+                    <!-- 6. Email для зв'язку -->
+                    <div class="mb-3">
+                        <label class="form-label">Email для зв'язку</label>
+                        <input asp-for="ContactEmail" class="form-control" style="background-color: #27293d; border: none; color: white; border-radius: 12px; padding: 12px;" />
+                        <span asp-validation-for="ContactEmail" class="text-danger" style="font-size: 13px; margin-top: 5px; display: block;"></span>
+                    </div>
+
+                    <!-- 7. Опис гри -->
+                    <div class="mb-3">
+                        <label class="form-label">Опис гри</label>
+                        <textarea asp-for="Description" class="form-control" rows="4" style="background-color: #27293d; border: none; color: white; border-radius: 12px; padding: 12px;"></textarea>
+                        <span asp-validation-for="Description" class="text-danger" style="font-size: 13px; margin-top: 5px; display: block;"></span>
+                    </div>
+
+                    <!-- 8. Віковий рейтинг (Nullable) -->
+                    <div class="mb-3">
+                        <label class="form-label">Віковий рейтинг (необов'язково)</label>
+                        <input asp-for="AgeRating" class="form-control" style="background-color: #27293d; border: none; color: white; border-radius: 12px; padding: 12px;" />
+                        <span asp-validation-for="AgeRating" class="text-danger" style="font-size: 13px; margin-top: 5px; display: block;"></span>
+                    </div>
+
+                    <!-- 9. ID (приховане або числове поле) -->
+                    <div class="mb-3">
+                        <label class="form-label">ID гри</label>
+                        <input asp-for="Id" class="form-control" style="background-color: #27293d; border: none; color: white; border-radius: 12px; padding: 12px;" />
+                        <span asp-validation-for="Id" class="text-danger" style="font-size: 13px; margin-top: 5px; display: block;"></span>
+                    </div>
+
+                    <!-- 10. Мультиплеєр (Чекбокс) -->
+                    <div class="mb-4 form-check">
+                        <input asp-for="IsMultiplayer" class="form-check-input" style="background-color: #27293d; border-color: #ec6090;" />
+                        <label class="form-check-label" style="margin-left: 5px;">Наявність мультиплеєра</label>
+                        <span asp-validation-for="IsMultiplayer" class="text-danger d-block" style="font-size: 13px; margin-top: 5px;"></span>
+                    </div>
+
+                    <!-- Кнопка відправки -->
+                    <button type="submit" class="btn btn-primary" style="background-color: #ec6090; border: none; border-radius: 25px; padding: 12px 30px; font-weight: 650; width: 100%;">
+                        Надіслати на перевірку
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

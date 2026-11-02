@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Localization
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var currentCulture = requestCulture?.RequestCulture.UICulture.Name ?? "uk";
+    var isUk = currentCulture == "uk";
+}
+
+<nav class="main-nav" style="display: flex; align-items: center; justify-content: flex-start; position: static;">
+    <!-- ***** Logo Start ***** -->
+    <a asp-controller="Home" asp-action="Index" class="logo" style="flex-shrink: 0; margin-right: 20px;">
+        <img src="~/assets/images/logo.png" alt="">
+    </a>
+    <!-- ***** Logo End ***** -->
+    <!-- ***** Search Start ***** -->
+    <div class="search-input" style="width: 150px !important; min-width: 150px; margin-right: 25px; position: static; float: none;">
+        <form id="search" action="#" style="width: 100%;">
+            <input type="text" placeholder="@(isUk ? "Пошук..." : "Search...")" id='searchText' name="searchKeyword" onkeypress="handle" style="width: 100%; height: 38px; padding: 0 10px 0 32px; font-size: 13px;" />
+            <i class="fa fa-search" style="left: 10px; top: 13px;"></i>
+        </form>
+    </div>
+    <!-- ***** Search End ***** -->
+    <!-- ***** Menu Start ***** -->
+    <ul class="nav" style="display: flex; align-items: center; margin: 0; padding: 0; list-style: none; float: none; position: static; width: auto; background-color: transparent;">
+        <li style="padding: 0 10px;"><a asp-controller="Home" asp-action="Index" style="font-size: 16px; padding: 0;">@(isUk ? "Головна" : "Home")</a></li>
+        <li style="padding: 0 10px;"><a asp-controller="Home" asp-action="Browse" style="font-size: 16px; padding: 0;">@(isUk ? "Огляд" : "Browse")</a></li>
+        <li style="padding: 0 10px;"><a asp-controller="Home" asp-action="Streams" style="font-size: 16px; padding: 0;">@(isUk ? "Стріми" : "Streams")</a></li>
+        <li style="padding: 0 10px;"><a asp-controller="File" asp-action="Upload" style="font-size: 16px; padding: 0;">@(isUk ? "Завантажити файл" : "Upload File")</a></li>
+        <li style="padding: 0 10px;"><a asp-controller="File" asp-action="FileList" style="font-size: 16px; padding: 0;">@(isUk ? "Файли" : "File List")</a></li>
+        <li style="padding: 0 10px;"><a asp-controller="Home" asp-action="Contact" style="font-size: 16px; padding: 0;">@(isUk ? "Контакти" : "Contact")</a></li>
+        <li style="padding: 0 10px;"><a asp-controller="Home" asp-action="Profile" style="font-size: 16px; padding: 0; display: flex; align-items: center;">@(isUk ? "Профіль" : "Profile") <img src="~/assets/images/profile-header.jpg" alt="" style="width: 28px; height: 28px; border-radius: 50%; margin-left: 6px;"></a></li>
+        <li style="padding-left: 12px; display: flex; align-items: center; list-style: none;">
+            <partial name="_SelectLanguagePartial" />
+        </li>
+    </ul>
+
+    <a class='menu-trigger'>
+        <span>Menu</span>
+    </a>
+    <!-- ***** Menu End ***** -->
+</nav>

@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Localization
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var currentCulture = requestCulture?.RequestCulture.UICulture.Name ?? "uk";
+    var isUk = currentCulture == "uk";
+
+    ViewData["Title"] = isUk ? "Перегляд файлу" : "View File";
+    var fileName = ViewBag.FileName as string;
+    var fileUrl = ViewBag.FileUrl as string;
+
+    var extension = System.IO.Path.GetExtension(fileName)?.ToLower();
+}
+
+<div class="container" style="padding-top: 100px; color: white;">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="p-4 rounded" style="background-color: #27293d;">
+                <h3 class="mb-3">@(isUk ? "Перегляд файлу:" : "View File:") @fileName</h3>
+
+                <div class="mb-4 text-center p-3" style="background: #1f212d; border-radius: 10px;">
+                    @if (extension == ".jpg" || extension == ".png" || extension == ".jpeg" || extension == ".gif")
+                    {
+                        <img src="@fileUrl" alt="@fileName" class="img-fluid rounded" style="max-height: 400px;" />
+                    }
+                    else if (extension == ".txt" || extension == ".log" || extension == ".json")
+                    {
+                        <p>@(isUk ? "Текстовий файл доступний за прямим посиланням нижче." : "Text file is available via direct link below.")</p>
+                        <a href="@fileUrl" target="_blank" class="btn btn-info">@(isUk ? "Відкрити в новому вікні" : "Open in new window")</a>
+                    }
+                    else
+                    {
+                        <p>@(isUk ? "Попередній перегляд для цього типу файлу не підтримується." : "Preview for this file type is not supported.")</p>
+                        <a href="@fileUrl" download class="btn btn-success">@(isUk ? "Завантажити файл" : "Download file")</a>
+                    }
+                </div>
+
+                <a asp-action="FileList" class="btn btn-secondary" style="border-radius: 25px;">@(isUk ? "Назад до списку" : "Back to list")</a>
+            </div>
+        </div>
+    </div>
+</div>
